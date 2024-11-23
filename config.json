@@ -1,0 +1,23 @@
+{
+  "prometheus": {
+    "endpoint": "http://localhost:9990/api/v1/query"
+  },
+  "mysql": {
+    "user": "root",
+    "password": "1234",
+    "net": "tcp",
+    "address": "localhost:3306",
+    "dbName": "oncall",
+    "allowNativePasswords": true,
+    "tableName": "sli"
+  },
+  "prober": {
+    "appUrl": "http://oncall.local",
+    "eventUrl": "/api/v0/events",
+    "appName": "prober",
+    "appKey": "prober",
+    "user": "root",
+    "team": "test",
+    "role": "primary"
+  }
+}

@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: oncall-sla-ingress
+spec:
+  rules:
+  - host: oncall-sla.local
+    http:
+      paths:
+      - path: /metrics
+        pathType: Prefix
+        backend:
+          service:
+            name: oncall-sla-service
+            port: 
+              number: 2112

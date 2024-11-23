@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: oncall-sla
+data:
+  oncall-sla.conf: |
+    {
+      "prometheus": {
+        "endpoint": "http://host.docker.internal:9990/api/v1/query"
+      },
+      "mysql": {
+        "user": "root",
+        "password": "1234",
+        "net": "tcp",
+        "address": "oncall-mysql:3306",
+        "dbName": "oncall",
+        "allowNativePasswords": true,
+        "tableName": "sli"
+      },
+      "prober": {
+        "appUrl": "http://oncall:8080",
+        "eventUrl": "/api/v0/events",
+        "appName": "prober",
+        "appKey": "prober",
+        "user": "root",
+        "team": "test",
+        "role": "primary"
+      }
+    }
