@@ -10,6 +10,8 @@ COPY ./metrics ./metrics
 COPY ./prober ./prober
 COPY ./sla ./sla
 
+COPY config.json ./
+
 COPY *.go ./
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o /oncall-sla

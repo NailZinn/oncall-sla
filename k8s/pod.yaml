@@ -8,14 +8,19 @@ spec:
   containers:
   - name: oncall-sla
     image: oncall-sla:latest
+    imagePullPolicy: Never
     resources:
       limits:
         memory: "128Mi"
         cpu: "500m"
     ports:
-      - containerPort: 2112
+    - containerPort: 2112
     volumeMounts:
-      - name: oncall-sla-config
-        mountPath: /app/config.json
-        subPath: oncall-sla.conf
-        readOnly: true
+    - name: oncall-sla-config
+      mountPath: /app/config.json
+      subPath: oncall-sla.conf
+      readOnly: true
+  volumes:
+  - name: oncall-sla-config
+    configMap:
+      name: oncall-sla

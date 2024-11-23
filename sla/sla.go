@@ -20,7 +20,7 @@ func Run() {
 		saveSli(metrics.OncallCreateEventRequestsSuccessTotal, float32(metric), 1, now, metric < 1)
 
 		query = fmt.Sprintf("changes(%s[1m])", metrics.OncallCreateEventRequestsFailTotal)
-		metric = int32(fetchMetrics(query, now, 2))
+		metric = int32(fetchMetrics(query, now, 1))
 		saveSli(metrics.OncallCreateEventRequestsFailTotal, float32(metric), 0, now, metric > 0)
 
 		metric = int32(fetchMetrics(metrics.OncallCreateEventRequestsDurationMs, now, 200))
